@@ -1,17 +1,7 @@
 Zadanie implementačnej úlohy
 Vytvorte RESTful servis, ktorý bude poskytovať informácie o jedlách ponúkaných v jedálni na celý týždeň. Menu s 
 ponukou pre jeden deň poskytuje vo formáte xml so štruktúrou:
-<ponuka>
- <den>utorok</den>
- <jedlo>
- <cena>3.5</cena>
- <nazov>gulas</nazov>
- </jedlo>
- <jedlo>
- <cena>3.3</cena>
- <nazov>palacinky</nazov>
- </jedlo>
-</ponuka>
+
 Poznámka. Uvedené xml je len príklad, ktorý ilustruje požadovanú štruktúru. XML dokumenty, ktorými pracuje servis 
 majú elementy s rovnakými názvami a štruktúrou, odlišovať môžu len textovým obsahom a počtom elementov
 POZOR dôležité!
@@ -19,6 +9,7 @@ POZOR dôležité!
 - Koreňový resource nazvite: menu
 - Ak používate @Singleton importujte javax.inject.Singleton
 - Dátové triedy vytvárajte tiež v package rest
+
 POKYNY k odovzdaniu: Do AISu sa odovzdáva celý zozipovaný adresár rest (so všetkými súbormi, ktoré ste 
 vytvorili)
 Menu s ponukou pre jeden deň bude pristupné ako resource s URL menu/{den}
@@ -32,10 +23,7 @@ Pre URL ponuky dňa menu/{den} implementujte metódy:
 GET pre MIME text/plain: vráti aktuálny počet jedál v menu pre daný deň.
 GET pre MIME application/xml: vráti kompletné menu ako xml s horeuvedenou štruktúrou
 POST pre MIME application/xml: pridá nové jedlo do ponuky pre daný deň. Akceptuje xml dokument so štruktúrou:
-<jedlo>
-<cena>3.5</cena>
-<nazov>gulas</nazov>
-</jedlo>
+
 Metóda vráti poradové číslo nového jedla v ponuke (MIME text/plain).
 Pred vložením nového jedla do zoznamu metóda overí, či sa v ponuke dňa už jedlo s daným názvom nenachádza. Ak sa 
 nachádza,, nepridá ho (neurobí nič) a vráti 0. 
